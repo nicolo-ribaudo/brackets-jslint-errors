@@ -1,0 +1,85 @@
+$prefix: jslint-errors_;
+
+@-webkit-keyframes #{$prefix}rotation {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+    }
+}
+
+.#{$prefix}explanation {
+    .modal-header h1 {
+        padding: {
+            bottom: 15px;
+            top: 15px;
+        };
+    }
+
+    .CodeMirror {
+        height: auto;
+
+        &-cursor {
+            display: none;
+        }
+
+        &-lines {
+            padding: 0px;
+        }
+    }
+
+    .#{$prefix}author span {
+        &:before {
+            content: "";
+            margin-right: 5px;
+        }
+
+        &:first-of-type:before {
+            content: "~";
+            margin-left: 5px;
+        }
+    }
+}
+
+.#{$prefix}button {
+    background-color: rgba(0, 0, 0, 0.31);
+    border-radius: 50%;
+    color: #e6e9e9;
+    cursor: pointer;
+    font-weight: bold;
+    height: 15px;
+    line-height: 15px;
+    position: absolute;
+    right: -25px;
+    text-align: center;
+    top: 5px;
+    width: 15px;
+
+    &::before {
+        content: "?";
+    }
+
+    &.loading {
+        -webkit-animation: {
+            duration: 1s;
+            iteration-count: infinite;
+            name: #{$prefix}rotation;
+        };
+    }
+
+    #problems-panel tr:nth-child(even) & {
+        color: #dfe2e2;
+    }
+}
+
+#problems-panel tr {
+
+    .line-text {
+        position: relative;
+    }
+
+    .line-snippet {
+        padding-left: 40px;
+    }
+}

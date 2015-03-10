@@ -1,0 +1,4 @@
+.brackets.json
+/node_modules/
+/dist/
+.sass-cache

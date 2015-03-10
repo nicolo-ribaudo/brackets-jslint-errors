@@ -1,0 +1,16 @@
+{
+    "browser": true,
+    "camelcase": true,
+    "curly": true,
+    "eqeqeq": true,
+    "strict": true,
+    "undef": true,
+    "unused": true,
+
+    "predef"        : [
+        "brackets",
+        "define",
+        "$"
+    ],
+    "indent"        : 4
+}

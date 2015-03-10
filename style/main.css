@@ -1,0 +1,49 @@
+@-webkit-keyframes jslint-errors_rotation {
+  0% {
+    -webkit-transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg); } }
+.jslint-errors_explanation .modal-header h1 {
+  padding-bottom: 15px;
+  padding-top: 15px; }
+.jslint-errors_explanation .CodeMirror {
+  height: auto; }
+  .jslint-errors_explanation .CodeMirror-cursor {
+    display: none; }
+  .jslint-errors_explanation .CodeMirror-lines {
+    padding: 0px; }
+.jslint-errors_explanation .jslint-errors_author span:before {
+  content: "";
+  margin-right: 5px; }
+.jslint-errors_explanation .jslint-errors_author span:first-of-type:before {
+  content: "~";
+  margin-left: 5px; }
+
+.jslint-errors_button {
+  background-color: rgba(0, 0, 0, 0.31);
+  border-radius: 50%;
+  color: #e6e9e9;
+  cursor: pointer;
+  font-weight: bold;
+  height: 15px;
+  line-height: 15px;
+  position: absolute;
+  right: -25px;
+  text-align: center;
+  top: 5px;
+  width: 15px; }
+  .jslint-errors_button::before {
+    content: "?"; }
+  .jslint-errors_button.loading {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: jslint-errors_rotation; }
+  #problems-panel tr:nth-child(even) .jslint-errors_button {
+    color: #dfe2e2; }
+
+#problems-panel tr .line-text {
+  position: relative; }
+#problems-panel tr .line-snippet {
+  padding-left: 40px; }
+
+/*# sourceMappingURL=main.css.map */

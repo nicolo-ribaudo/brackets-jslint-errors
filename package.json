@@ -1,0 +1,44 @@
+{
+    "name": "nicolo-ribaudo.brackets-jslint-errors",
+    "version": "0.0.0",
+    "title": "JSLint error explanations",
+    "description": "This extension helps you to understand the sometimes cryptic error messages produced by JSLint, JSHint and ESLint, using data from jslinterrors.com.",
+    "engines": {
+        "brackets": ">=1.2"
+    },
+    "homepage": "https://github.com/nicolo-ribaudo/brackets-jslint-errors",
+    "author": {
+        "name": "Nicolò Ribaudo",
+        "url": "https://github.com/nicolo-ribaudo",
+        "email": "nicolo.ribaudo@gmail.com"
+    },
+    "license": "MIT",
+    "keywords": [
+        "jslint",
+        "jshint",
+        "linting",
+        "error",
+        "explanation",
+        "help",
+        "info",
+        "jslinterrors",
+        "jslinterrors.com"
+    ],
+    "i18n": [
+        "en",
+        "it"
+    ],
+    "package-i18n": {
+        "it": {
+            "desciption": "Questa estensione ti aiuta a capire gli errori, a volte un po' ciptici, prodotti da JSLint, JSHint e ESLint, usando i dati di jslinterrors.com."
+        }
+    },
+    "devDependencies": {
+        "grunt": "^0.4.5",
+        "grunt-cli": "^0.1.13",
+        "grunt-contrib-bump": "git://github.com/gruntjs/grunt-contrib-bump",
+        "grunt-contrib-compress": "^0.13.0",
+        "grunt-contrib-jshint": "^0.11.0",
+        "load-grunt-tasks": "^3.1.0"
+    }
+}
