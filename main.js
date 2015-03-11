@@ -23,7 +23,7 @@ define(function (require, exports, module) {
     function loadExplanation(error) {
         var deferred = $.Deferred();
         $.getJSON("http://api.jslinterrors.com/explain", {
-            message: error.replace(/'.+?'/, "'a'"),
+            message: error,
             format: "html"
         }).then(function (result) {
             var response = {
