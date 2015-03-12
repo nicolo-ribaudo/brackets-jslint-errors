@@ -10,16 +10,19 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: pkg,
         jshint: {
-            all: [ "**/*.js", "!**/node_modules/" ]
+            all: [ "**/*.js", "!node_modules/**" ]
+        },
+        bump: {
+            tag: false
         },
         compress: {
             dist: {
                 options: {
-                    archive: "<%= pkg.name %>.<%= pkg.version %>.zip"
-                }
-            },
-            expand: true,
-            src: [ "**/*", "!/node_modules/*", "!.brackets.json", "!.sass-cache" ]
+                    archive: "dist/<%= pkg.name %>.v<%= pkg.version %>.zip"
+                },
+                expand: true,
+                src: [ "**/*", "!Gruntfile.js", "!node_modules/**", "!.*", "!dist" ]
+            }
         }
     });
 

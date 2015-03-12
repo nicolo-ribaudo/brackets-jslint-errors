@@ -6,7 +6,7 @@ A [Brackets](http://brackets.io) extension which helps you understanding errors 
 
 >JSLint Error Explanations is designed to help you improve your JavaScript by understanding the sometimes cryptic error messages produced by JSLint, JSHint and ESLint, and teaching you how to avoid such errors.
 
-<div style="text-align:right">Quoted from [jslinterrors.com](http://jslinterrors.com)</div>
+Quoted from [jslinterrors.com](http://jslinterrors.com)
 
 ---
 
