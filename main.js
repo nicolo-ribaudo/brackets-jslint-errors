@@ -16,35 +16,43 @@ define(function (require, exports, module) {
         Strings = require("strings"),
         // -- VARIABLES
         linters = [ "JSLint", "JSHint", "ESLint" ],
+        cache = {},
         $problemsPanelTable;
 
     ExtensionUtils.loadStyleSheet(module, "style/main.css");
 
     function loadExplanation(error) {
-        var deferred = $.Deferred();
-        $.getJSON("http://api.jslinterrors.com/explain", {
-            message: error,
-            format: "html"
-        }).then(function (result) {
-            var response = {
-                explanation: result.explanation,
-                author: {
-                    name: result.author.name,
-                    urls: {}
+        var deferred = $.Deferred(),
+            cachedErrorName = error.replace(/'.*?'/g, "'a'");
+        if (cache[cachedErrorName]) {
+            deferred.resolve(cache[cachedErrorName]);
+        } else {
+            $.getJSON("http://api.jslinterrors.com/explain", {
+                message: error,
+                format: "html"
+            }).then(function (result) {
+                var response = {
+                    explanation: result.explanation,
+                    author: {
+                        name: result.author.name,
+                        urls: {}
+                    }
+                };
+                ["github", "twitter", "gravatar"].forEach(function (site) {
+                    if (result.author[site]) {
+                        response.author.urls[site.replace(/^./, Function.prototype.call.bind("".toUpperCase))] = "https://" + site + ".com/" + result.author[site];
+                    }
+                });
+                if (result.author.gplus) {
+                    response.author.urls["Google+"] = "https://plus.google.com/" + result.author.gplus;
                 }
-            };
-            ["github", "twitter", "gravatar"].forEach(function (site) {
-                if (result.author[site]) {
-                    response.author.urls[site.replace(/^./, Function.prototype.call.bind("".toUpperCase))] = "https://" + site + ".com/" + result.author[site];
-                }
+
+                cache[cachedErrorName] = response;
+                deferred.resolve(response);
+            }, function (error) {
+                deferred.reject(error);
             });
-            if (result.author.gplus) {
-                response.author.urls["Google+"] = "https://plus.google.com/" + result.author.gplus;
-            }
-            deferred.resolve(response);
-        }, function (error) {
-            deferred.reject(error);
-        });
+        }
         return deferred.promise();
     }
 
