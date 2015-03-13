@@ -14,6 +14,9 @@ Compatible with these extensions:
 - [JSHint](https://github.com/cfjedimaster/brackets-jshint) by [Raymond Camden](https://github.com/cfjedimaster)
 - [ESLint](https://github.com/zaggino/brackets-eslint) by [Martin Zagora](https://github.com/zaggino)
 
+## Screenshot
+![](http://i61.tinypic.com/29wqpab.png)
+
 ## FAQ
 ###When I click on `?`, I get an *Explanation not found* error. Why?
 That's probably because on [jslinterrors.com](http://jslinterrors.com) there isn't the error for which you are looking for help. However, if the explanation is there, please [file an issue](https://github.com/nicolo-ribaudo/brackets-jslint-errors/issues/new).
