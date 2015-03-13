@@ -35,17 +35,9 @@ define(function (require, exports, module) {
                     explanation: result.explanation,
                     author: {
                         name: result.author.name,
-                        urls: {}
+                        url: "https://github.com/" + result.author.github
                     }
                 };
-                ["github", "twitter", "gravatar"].forEach(function (site) {
-                    if (result.author[site]) {
-                        response.author.urls[site.replace(/^./, Function.prototype.call.bind("".toUpperCase))] = "https://" + site + ".com/" + result.author[site];
-                    }
-                });
-                if (result.author.gplus) {
-                    response.author.urls["Google+"] = "https://plus.google.com/" + result.author.gplus;
-                }
 
                 cache[cachedErrorName] = response;
                 deferred.resolve(response);
@@ -62,10 +54,9 @@ define(function (require, exports, module) {
             deferred.resolve();
         }).then(function (result) {
             var dialog = Dialogs.showModalDialog("jslint-errors_explanation", error, result.explanation),
-                $author = $("<div class='jslint-errors_author'/>").text("Written by" + result.author.name);
-            Object.keys(result.author.urls).forEach(function (site) {
-                $("<a/>").attr("href", result.author.urls[site]).text(site).appendTo($author).wrap("<span/>");
-            });
+                authorName = $("<a/>").attr("href", result.author.url).text(result.author.name).get(0).outerHTML,
+                $author = $("<div class='jslint-errors_author'/>").append(StringUtils.format(Strings.WRITTEN_BY, authorName));
+            $("<a href='http://jslinterrors.com'>jslinterrors.com</a>").appendTo($author);
             dialog.getElement().find("pre > code.lang-javascript").each(function () {
                 var $this = $(this),
                     $pre = $this.parent("pre"),

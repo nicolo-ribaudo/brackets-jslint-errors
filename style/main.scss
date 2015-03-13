@@ -29,16 +29,9 @@ $prefix: jslint-errors_;
         }
     }
 
-    .#{$prefix}author span {
-        &:before {
-            content: "";
-            margin-right: 5px;
-        }
-
-        &:first-of-type:before {
-            content: "~";
-            margin-left: 5px;
-        }
+    .#{$prefix}author a:last-child {
+        display: inline-block;
+        float: right;
     }
 }
 
