@@ -1,6 +1,6 @@
 {
     "name": "nicolo-ribaudo.brackets-jslint-errors",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "title": "JSLint error explanations",
     "description": "This extension helps you to understand the sometimes cryptic error messages produced by JSLint, JSHint and ESLint, using data from jslinterrors.com.",
     "engines": {
